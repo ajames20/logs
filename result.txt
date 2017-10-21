@@ -1,13 +1,8 @@
-1. The most popular Articles of all time are:
+1. The three most popular Articles of all time are:
 
         Candidate is jerk, alleges rival - 677294 views
         Bears love berries, alleges bear - 507602 views
         Bad things gone, say good people - 340196 views
-        Goats eat Google's lawn - 169812 views
-        Trouble for troubled troublemakers - 169620 views
-        Balloon goons doomed - 169114 views
-        There are a lot of bears - 169008 views
-        Media obsessed with bears - 168766 views
 
 2. The most popular article authors of all time are:
 
@@ -18,4 +13,4 @@
 
 3. Which day did more than 1% of requests lead to errors:
 
-The day of 2016-07-17 led to more than 1% of errors with a precentage of 2.26%
+The day of 2016-07-17 led to more than 1% of errors with a precentage of 2.26%.

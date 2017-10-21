@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # import psycopg2
 import psycopg2
 
@@ -9,7 +11,7 @@ QUERY_1 = ''' SELECT title, count(*) AS num
 FROM articles
 INNER JOIN log ON log.path=CONCAT('/article/',articles.slug)
 GROUP BY articles.title
-ORDER BY num DESC; '''
+ORDER BY num DESC LIMIT 3; '''
 
 # 2. Who are the most popular article authors of all time?
 QUERY_2 = ''' SELECT authors.name, count(log.path) AS count
@@ -34,14 +36,15 @@ def execute_query(query):
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     c.execute(query)
-    return c.fetchall()
+    results = c.fetchall()
     db.close()
+    return results
 
 
 def print_query_1_results(query):
     '''Formats and prints the results of query 1 returned from execute_query'''
     results = execute_query(query)
-    print('\n1. The most popular Articles of all time are:\n')
+    print('\n1. The three most popular Articles of all time are:\n')
     for result in results:
         print('\t' + str(result[0]) + ' - ' + str(result[1]) + ' views')
 
@@ -66,6 +69,7 @@ def print_query_3_results(query):
 
 
 # print out results
-print_query_1_results(QUERY_1)
-print_query_2_results(QUERY_2)
-print_query_3_results(QUERY_3)
+if __name__ == '__main__':
+    print_query_1_results(QUERY_1)
+    print_query_2_results(QUERY_2)
+    print_query_3_results(QUERY_3)
