@@ -12,7 +12,7 @@ VirtualBox
 1. Download or Clone [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm) repository.
 1. Download the data from [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
 1. Unzip after downloading.
-1. Copy the newsdata.sql into the vagrant folder inside of the repo you downloaded.
+1. Copy the newsdata.sql into the vagrant folder inside of the repo you downloaded into the vagrant directory and and add the `logs.py` file from this repo as well.
 
 ### Steps to Run `logs.py` and view query results
 
@@ -34,7 +34,7 @@ VirtualBox
 ~ psql -d news -f newsdata.sql
 ```
 
-4. Run `logs.py` to view the results of teh queries.
+4. Run `logs.py` to view the results of the queries.
 
 ```
 ~ python3 logs.py
