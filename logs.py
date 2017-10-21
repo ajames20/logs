@@ -1,4 +1,4 @@
-#import psycopg2
+# import psycopg2
 
 import psycopg2
 
@@ -35,9 +35,7 @@ AS result WHERE error > 1; '''
 
 
 def execute_query(query):
-    ''' Executes a query to the news 
-        database and returns data '''
-
+    '''Executes a query to the news database and returns data'''
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     c.execute(query)
@@ -46,8 +44,7 @@ def execute_query(query):
 
 
 def print_query_1_results(query):
-    ''' Formats and prints the results of 
-        query 1 returned from execute_query '''
+    '''Formats and prints the results of query 1 returned from execute_query'''
 
     results = execute_query(query)
     print('\n1. The most popular Articles of all time are:\n')
@@ -56,8 +53,7 @@ def print_query_1_results(query):
 
 
 def print_query_2_results(query):
-    ''' Formats and prints the results 
-        of query 2 returned from execute_query '''
+    '''Formats and prints the results of query 2 returned from execute_query'''
 
     results = execute_query(query)
     print('\n2. The most popular article authors of all time are:\n')
@@ -66,16 +62,15 @@ def print_query_2_results(query):
 
 
 def print_query_3_results(query):
-    ''' Formats and prints the results 
-        of query 3 returned from execute_query '''
+    '''Formats and prints the results of query 3 returned from execute_query'''
 
     results = execute_query(query)
     print('\n3. Which day did more than 1% of requests lead to errors:\n')
     for result in results:
         print('The day of ' +
               str(result[0]) +
-              ' led to more than 1% of errors with a precentage of '
-              + str(result[1]) + '%.')
+              ' led to more than 1% of errors with a precentage of ' +
+              str(result[1]) + '%.')
 
 
 # print out results
