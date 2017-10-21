@@ -15,9 +15,9 @@ def execute_query(query):
 
 # 1. What are the most popular three articles of all time?
 QUERY_1 = ''' SELECT title, count(*) AS num
-FROM articles 
-INNER JOIN log ON log.path=CONCAT('/article/',articles.slug) 
-GROUP BY articles.title 
+FROM articles
+INNER JOIN log ON log.path=CONCAT('/article/',articles.slug)
+GROUP BY articles.title
 ORDER BY num DESC; '''
 
 # 2. Who are the most popular article authors of all time?
@@ -30,7 +30,8 @@ ORDER BY count DESC; '''
 
 # 3. On which days did more than 1% of requests lead to errors?
 QUERY_3 = ''' SELECT * FROM
-(SELECT date(time), ROUND(100.0 * SUM(CASE log.status WHEN '200 OK' THEN 0 ELSE 1 END) / COUNT(log.status), 2) AS error FROM log GROUP BY date(time) ORDER BY error desc) 
+(SELECT date(time), ROUND(100.0 * SUM(CASE log.status WHEN '200 OK' THEN 0 ELSE 1 END)
+/ COUNT(log.status), 2) AS error FROM log GROUP BY date(time) ORDER BY error desc)
 AS result WHERE error > 1; '''
 
 
